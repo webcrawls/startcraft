@@ -17,5 +17,6 @@
   "license": "MIT",
   "dependencies": {
     "inquirer": "^7.3.3"
-  }
+  },
+  "bin": "./src/index.js"
 }
