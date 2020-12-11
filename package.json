@@ -5,5 +5,8 @@
   "main": "index.js",
   "repository": "https://github.com/kadenscott/startcraft",
   "author": "kadenscott",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "inquirer": "^7.3.3"
+  }
 }
