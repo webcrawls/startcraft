@@ -1,0 +1,9 @@
+{
+  "name": "startcraft",
+  "version": "1.0.0",
+  "description": "Quickly create Minecraft servers with an easy-to-use TUI.",
+  "main": "index.js",
+  "repository": "https://github.com/kadenscott/startcraft",
+  "author": "kadenscott",
+  "license": "MIT"
+}
