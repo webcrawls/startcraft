@@ -1,12 +1,18 @@
 {
   "name": "startcraft",
   "version": "1.0.0",
-  "description": "Quickly create Minecraft servers with an easy-to-use TUI.",
+  "description": "An easy-to-use CLI program to quickly create Minecraft servers.",
   "main": "index.js",
-  "repository": "https://github.com/kadenscott/startcraft",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com/kadenscott/startcraft"
+  },
+  "keywords": [
+    "minecraft"
+  ],
   "author": "kadenscott",
-  "license": "MIT",
-  "dependencies": {
-    "inquirer": "^7.3.3"
-  }
+  "license": "MIT"
 }
