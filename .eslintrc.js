@@ -12,4 +12,13 @@ module.exports = {
   },
   rules: {
   },
+  editor: {
+    codeActionsOnSave: {
+      source: {
+        fixAll: {
+          eslint: true,
+        },
+      },
+    },
+  },
 };
