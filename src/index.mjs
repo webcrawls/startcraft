@@ -12,9 +12,15 @@ loadServerData((data) => {
     let scriptName = data.scriptName
 
     let serverProcess = spawn('bash', [`${scriptName}`])
-    serverProcess.stdout.on('data', data => console.log(data.toString()))
-    serverProcess.stderr.on('data', data => console.log(data.toString()))
+
+    serverProcess.stdout.pipe(process.stdout)
     serverProcess.on('exit', () => {console.log("The server has stopped.")})
+
+    process.stdin.pipe(serverProcess.stdin)
+
+    process.on('exit', () => {
+        serverProcess.kill()
+    })
 }, () => {
     console.log(chalk.blueBright("No server was detected in this directory, starting the TUI..."))
     setTimeout(() => {
