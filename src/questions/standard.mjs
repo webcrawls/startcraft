@@ -1,8 +1,11 @@
 import enquirer from 'enquirer'
 import * as vanilla from './vanilla.mjs'
 import * as paper from './paper.mjs'
+import chalk from 'chalk'
+import server from '../data/server.mjs'
+import fs from 'fs'
 
-const { Select } = enquirer
+const { Select, Confirm } = enquirer
 
 const promptServerType = () => {
     new Select({
@@ -14,9 +17,28 @@ const promptServerType = () => {
         ]
     }).run().then(answer => {
         if (answer === 'Vanilla') {
+            server.serverType = 'vanilla'
             vanilla.promptServerVersionType()
         }
     })
 }
 
-export { promptServerType }
+const promptSaveSettings = () => {
+    new Confirm({
+        name: 'saveSettings',
+        message: 'Would you like to save these settings? This will tell startcraft more about your server, for features such as '+chalk.cyanBright("auto-updating")+chalk.white("."),
+        initial: true
+    }).run().then((answer) => {
+        if (answer) {
+            let data = JSON.stringify(server, null, 2)
+            fs.writeFile("startcraft.json", data, (err) => {
+                if (err) {
+                    console.log(chalk.red("Error saving startcraft.json."))
+                    return
+                }
+            })
+        }
+    })
+}
+
+export { promptServerType, promptSaveSettings }

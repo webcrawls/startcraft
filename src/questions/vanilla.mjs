@@ -5,6 +5,7 @@ import { downloadImage } from '../util/file.mjs'
 import stripAnsi from 'strip-ansi'
 import path from 'path'
 import chalk from 'chalk'
+import server from '../data/server.mjs'
 import * as script from './script.mjs'
 
 const { Select, AutoComplete } = enquirer
@@ -76,6 +77,8 @@ const promptServerVersion = (versionType) => {
                     return
                 }
 
+                server.version = version.id
+
                 let spinner = ora('Downloading ' + version + ' server...')
                 spinner.start()
 
@@ -95,7 +98,9 @@ const promptServerVersion = (versionType) => {
 
                         console.log("'server.jar' has been saved to this directory.")
 
-                        script.promptCreateStartScript("server.jar")
+                        server.jarName = "server.jar"
+
+                        script.promptCreateStartScript()
                     })
             })
         })
