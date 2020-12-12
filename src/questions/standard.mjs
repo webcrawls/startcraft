@@ -30,6 +30,7 @@ const promptSaveSettings = () => {
         initial: true
     }).run().then((answer) => {
         if (answer) {
+            server.createdDate = new Date()
             let data = JSON.stringify(server, null, 2)
             fs.writeFile("startcraft.json", data, (err) => {
                 if (err) {
