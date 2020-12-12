@@ -13,7 +13,7 @@ let printWelcomeScreen = () => {
         }
 
         console.log(chalk.green(data))
-        console.log(chalk.blueBright("startcraft interactive UI"))
+        console.log(chalk.blueBright("No server was detected in this directory, starting the TUI..."))
     })
 }
 

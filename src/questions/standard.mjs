@@ -2,7 +2,7 @@ import enquirer from 'enquirer'
 import * as vanilla from './vanilla.mjs'
 import * as paper from './paper.mjs'
 
-const { Select, Confirm } = enquirer
+const { Select } = enquirer
 
 const promptServerType = () => {
     new Select({
@@ -19,4 +19,4 @@ const promptServerType = () => {
     })
 }
 
-export { promptServerTypes }
+export { promptServerType }

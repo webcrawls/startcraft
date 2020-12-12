@@ -5,7 +5,7 @@ import { downloadImage } from '../util/file.mjs'
 import stripAnsi from 'strip-ansi'
 import path from 'path'
 import chalk from 'chalk'
-import * as standard from './standard.mjs'
+import * as script from './script.mjs'
 
 const { Select, AutoComplete } = enquirer
 
@@ -95,7 +95,7 @@ const promptServerVersion = (versionType) => {
 
                         console.log("'server.jar' has been saved to this directory.")
 
-                        standard.promptCreateStartScript()
+                        script.promptCreateStartScript("server.jar")
                     })
             })
         })
