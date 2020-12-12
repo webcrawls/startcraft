@@ -37,9 +37,25 @@ const promptSaveSettings = () => {
                     console.log(chalk.red("Error saving startcraft.json."))
                     return
                 }
+
+                promptAgreeToEula((answer) => {
+                    if (answer) {
+                        fs.writeFileSync("eula.txt", "eula=true")
+                    }
+                })
             })
         }
     })
+}
+
+const promptAgreeToEula = (acceptCallback) => {
+    new Confirm({
+        name: 'acceptEula',
+        message: 'Would you like to accept the Mojang EULA? Read more: ' + chalk.cyanBright("https://account.mojang.com/documents/minecraft_eula"),
+        initial: true
+    }).run().then((answer => {
+        acceptCallback(answer)
+    }))
 }
 
 export { promptServerType, promptSaveSettings }

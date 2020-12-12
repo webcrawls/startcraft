@@ -5,7 +5,6 @@ const loadServerData = (dataCallback, noDataCallback) => {
         fs.readFile("startcraft.json", (err, data) => {
             if (err) {
                 console.log("Error reading startcraft.json")
-                noDataCallback()
                 return
             }
 
@@ -13,7 +12,10 @@ const loadServerData = (dataCallback, noDataCallback) => {
 
             dataCallback(config)
         })
+        return
     }
+    
+    noDataCallback()
 }
 
 export { loadServerData }
