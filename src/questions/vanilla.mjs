@@ -27,7 +27,6 @@ const promptServerVersionType = () => {
 }
 
 const promptServerVersion = (versionType) => {
-    console.log(versionType)
     versionType = versionType.toLowerCase()
 
     let spinner = ora('Loading ' + versionType + ' versions...')
