@@ -19,6 +19,9 @@ const promptServerType = () => {
         if (answer === 'Vanilla') {
             server.serverType = 'vanilla'
             vanilla.promptServerVersionType()
+        } else if (answer === 'Paper') {
+            server.serverType = 'paper'
+            paper.promptServerVersion()
         }
     })
 }
