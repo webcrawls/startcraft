@@ -2,7 +2,7 @@ import Select from 'enquirer/lib/prompts/select';
 import AutoComplete from 'enquirer/lib/prompts/autocomplete';
 import ora from 'ora';
 import axios from 'axios';
-import { downloadImage } from '../util/file';
+import { downloadFile } from '../util/file';
 import stripAnsi from 'strip-ansi';
 import path from 'path';
 import chalk from 'chalk';
@@ -90,7 +90,7 @@ const promptServerVersion = (versionType: string): void => {
 
           const serverUrl = manifest.downloads.server.url;
 
-          downloadImage(serverUrl, path.resolve(process.cwd(), 'server.jar'));
+          downloadFile(serverUrl, path.resolve(process.cwd(), 'server.jar'));
           spinner.stop();
 
           console.log("'server.jar' has been saved to this directory.");

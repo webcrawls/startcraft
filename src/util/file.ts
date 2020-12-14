@@ -1,7 +1,7 @@
 import fs, { PathLike } from 'fs';
 import axios from 'axios';
 
-export const downloadImage = async (url: string, path: PathLike): Promise<string> => {
+export const downloadFile = async (url: string, path: PathLike): Promise<string> => {
   const writer = fs.createWriteStream(path);
 
   const response = await axios({
