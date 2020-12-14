@@ -4,6 +4,7 @@ import AutoComplete from 'enquirer/lib/prompts/autocomplete';
 import { downloadFile } from '../util/file';
 import { promptCreateStartScript } from './script';
 import ora from 'ora';
+import server from '../type/server';
 
 export const promptServerVersion = (): void => {
   axios.get('https://papermc.io/api/v2/projects/paper').then((resp) => {
@@ -44,6 +45,7 @@ export const promptServerVersion = (): void => {
               'https://papermc.io/api/v2/projects/paper/versions/' + answer + '/builds/' + latest + '/downloads/' + file,
               'server.jar',
             ).then(() => {
+              server.jarName = 'server.jar';
               spinner.stop();
               promptCreateStartScript();
             });
