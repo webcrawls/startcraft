@@ -42,11 +42,7 @@ const promptServerVersion = (versionType: string): void => {
     //TODO: knownVersions = unfilteredVersions
 
     const unformattedVersions = unfilteredVersions.filter((version) => {
-      if (version['type'] == versionType) {
-        return true;
-      } else {
-        return false;
-      }
+      return version['type'] == versionType;
     });
 
     const versions = [];
