@@ -24,6 +24,22 @@ export const promptServerType = (): void => {
     });
 };
 
+export const promptEmptyDir = (): void => {
+  new Confirm({
+    name: 'emptyProceed',
+    message: 'This directory is not empty. Would you like to proceed?',
+    initial: false,
+  })
+    .run()
+    .then((answer: boolean) => {
+      if (answer === true) {
+        promptServerType();
+      } else {
+        process.exit(0);
+      }
+    });
+};
+
 export const promptSaveSettings = (): void => {
   new Confirm({
     name: 'saveSettings',
