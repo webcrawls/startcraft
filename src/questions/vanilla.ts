@@ -9,8 +9,6 @@ import chalk from 'chalk';
 import server from '../type/server';
 import * as script from './script';
 
-//TODO: let knownVersions = []
-
 // Prompts for the server's version type (i.e. release, snapshot, etc)
 export const promptServerVersionType = (): void => {
   new Select({
