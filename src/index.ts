@@ -17,6 +17,8 @@ loadServerData(
     const serverProcess = spawn('bash', [`${scriptName}`]);
 
     serverProcess.stdout.pipe(process.stdout);
+    serverProcess.stderr.pipe(process.stderr);
+
     serverProcess.on('exit', () => {
       console.log('The server has stopped.');
     });
