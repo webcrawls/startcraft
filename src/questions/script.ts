@@ -12,25 +12,30 @@ export const promptCreateStartScript = (): void => {
     initial: true,
   })
     .run()
-    .then((answer: string) => {
-      if (!answer) {
-        // bruh
-      }
-
-      promptServerRam();
+    .then((answer: boolean) => {
+      promptServerRam(answer);
     });
 };
 
-const promptServerRam = (): void => {
+const promptServerRam = (createScript: boolean = true): void => {
+  let scriptInfo: string = ' (This will be used for starting the server with startcraft';
+  if (createScript) {
+    scriptInfo += ' and your startup script';
+  }
+  scriptInfo += '.)';
   new Input({
     name: 'serverRam',
-    message: 'How much RAM would you like to run the server with? (i.e. 10G, 900M)',
+    message: 'How much RAM would you like to run the server with? (i.e. 10G, 900M)' + scriptInfo,
     initial: '10G',
   })
     .run()
     .then((answer: string) => {
       server.ram = answer;
-      createServerScript();
+      if (createScript) {
+        createServerScript();
+      } else {
+        standard.promptSaveSettings();
+      }
     });
 };
 
