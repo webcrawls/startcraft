@@ -1,5 +1,7 @@
 # startcraft
 
+> ARCHIVED - I'm sure there's better ways to manage your servers since this was made :^)
+
 **startcraft** is a CLI tool to assist in the creation of Minecraft servers.
 
 Now, you no longer need to spend hours firing up your browser to download the server version and create a start script. **startcraft** handles it all for you!
