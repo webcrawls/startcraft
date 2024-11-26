@@ -31,7 +31,7 @@ export const promptServerVersion = (): void => {
                 chalk.white.bold('Ensure that this build is safe to use by checking the Paper GitHub/Discord for potential issues.'),
             ),
         );
-        const spinner = ora().start('Downloading' + answer + 'server...');
+        const spinner = ora().start('Downloading ' + answer + ' server...');
 
         axios.get('https://papermc.io/api/v2/projects/paper/versions/' + answer).then((resp) => {
           const builds = resp.data.builds;
